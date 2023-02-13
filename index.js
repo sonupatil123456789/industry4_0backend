@@ -23,6 +23,7 @@ process.on("uncaughtException", (err) => {
 dotenv.config({ path: "./config.env" })
 
 // connecting to the database 
+mongoose.set('strictQuery', false);
 mongoose.connect(process.env.DB_URL, { useUnifiedTopology: true, useNewUrlParser: true });
 const connection = mongoose.connection;
 connection.once("open", function() {
