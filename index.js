@@ -29,6 +29,7 @@ connection.once("open", function() {
   console.log("MongoDB database connection established successfully");
 })
 
+app.use("/.netlify/routes/api/v1", Worker)
 
 // //routes imports
 app.get('/', (req, res) => {
