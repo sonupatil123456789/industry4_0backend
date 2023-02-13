@@ -38,7 +38,7 @@ const Worker = require("./routes/workerroutes");
 app.use("/api/v1", Worker)
 
 
-const server = app.listen(process.env.PORT, () => {
+const server = app.listen(3000 || process.env.PORT || 5000, () => {
     console.log(`your server is working on port ${process.env.PORT}`)
 })
 
@@ -46,6 +46,7 @@ const server = app.listen(process.env.PORT, () => {
 // Unhandled Promise Rejection for mongo db
 process.on("unhandledRejection", (err) => {
     console.log(`Error: ${err.message}`);
+    console.log(err);
     console.log(`Shutting down the server due to Unhandled Promise Rejection`);
     server.close(() => {
         process.exit(1);
