@@ -39,7 +39,7 @@ const Worker = require("./routes/workerroutes");
 app.use("/api/v1", Worker)
 
 
-const server = app.listen(3000 || process.env.PORT || 5000, () => {
+const server = app.listen( process.env.PORT || 5000, () => {
     console.log(`your server is working on port ${process.env.PORT}`)
 })
 
