@@ -135,12 +135,15 @@ exports.contracteraccountworkers = async (req, res, next) => {
         const worker = await Workermodel.find({
             companyid :req.params.id
         });
-
+        const workercount = await Workermodel.find({
+            companyid :req.params.id
+        }).count();
         console.log(worker);
         // console.log(worker);
         res.status(200).json({
             success: true,
             worker,
+            workercount,
             message: " getting companyacount worker "
         })
     } catch (error) {
